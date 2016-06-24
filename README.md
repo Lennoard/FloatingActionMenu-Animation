@@ -18,7 +18,7 @@ Just add the dependency to your `build.gradle`:
 
 ```groovy
 dependencies {
-    compile ''
+    compile 'toan.android:floatingactionbutton:1.0'
 }
 ```
 
@@ -40,7 +40,7 @@ To see how the buttons are added to your xml layouts, check the sample project.
 
 Credits
 =======
-This library is a extended version of the [FloatingActionButton](ttps://github.com/str4d/android-floating-action-button) library by [str4d](https://github.com/str4d).
+This library is a extended version of the [FloatingActionButton](https://github.com/str4d/android-floating-action-button) library by [str4d](https://github.com/str4d).
 
 That library used [FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) library by [Oleksandr Melnykov](https://github.com/makovkastar) as a base for development for handler of scroll.
 
