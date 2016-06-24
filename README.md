@@ -2,26 +2,15 @@ FloatingActionButton
 ====================
 Yet another library for drawing [Material Design promoted actions](http://www.google.com/design/spec/patterns/promoted-actions.html).
 
-This library supports API 4+.
+This library supports API 7+.
 
 Features
 ========
-* Support for normal `56dp` and mini `40dp` buttons.
+* Support all features from its' base version: [FloatingActionButton](ttps://github.com/str4d/android-floating-action-button)
+* Scroll handler listener custom and animations:
+    Scale:
 
-  ![Demo](screenshots/buttons.png)
-
-* Customizable background colors for normal and pressed states and icon drawable.
-
-  ![Demo](screenshots/custom.png)
-
-* Convenience `AddFloatingActionButton` class with plus icon drawn in code.
-* `FloatingActionsMenu` which can be expanded/collapsed to reveal multiple actions.
-
-  ![Demo](screenshots/menu.gif)
-
-* Optional labels for buttons in `FloatingActionsMenu`.
-
-  ![Demo](screenshots/labels.png)
+    TranslationY:     
 
 Usage
 =====
@@ -29,7 +18,7 @@ Just add the dependency to your `build.gradle`:
 
 ```groovy
 dependencies {
-    compile 'net.i2p.android.ext:floatingactionbutton:1.10.1'
+    compile ''
 }
 ```
 
@@ -38,7 +27,7 @@ The library is available on Maven Central (`mavenCentral()` in your repositories
 Alternatively, you can build it manually and install it in your local Maven repo:
 
 ```
-git clone https://github.com/str4d/android-floating-action-button
+git clone https://github.com/toanvc/android-floating-action-button
 cd android-floating-action-button
 cd library
 gradle installArchives
@@ -48,21 +37,16 @@ Then add `mavenLocal()` to the top of your repositories list (so it is checked f
 
 To see how the buttons are added to your xml layouts, check the sample project.
 
-Caveats
-=======
-The API is **extremely** limited at the moment. It solves few select use cases in the app I'm working on.
-
-Unlike some other FloatingActionButton libraries this library doesn't implement "quick return" pattern, i.e. hiding the button on scrolling down and showing it on scrolling up. That's intentional, I think that should be responsibility of another component, not the button itself.
 
 Credits
 =======
-This library is a supported backwards-compatible version of the [FloatingActionButton](https://github.com/futuresimple/android-floating-action-button) library by [Jerzy Chalupski](https://github.com/chalup).
+This library is a extended version of the [FloatingActionButton](ttps://github.com/str4d/android-floating-action-button) library by [str4d](https://github.com/str4d).
 
-That library used [FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) library by [Oleksandr Melnykov](https://github.com/makovkastar) as a base for development.
+That library used [FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) library by [Oleksandr Melnykov](https://github.com/makovkastar) as a base for development for handler of scroll.
 
 License
 =======
-
+    Copyright (C) 2016 toanvc
     Copyright (C) 2014 str4d
     Copyright (C) 2014 Jerzy Chalupski
 

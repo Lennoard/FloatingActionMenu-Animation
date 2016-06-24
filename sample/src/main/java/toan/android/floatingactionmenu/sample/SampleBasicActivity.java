@@ -1,7 +1,4 @@
-package net.i2p.android.ext.floatingactionbutton.sample;
-
-import net.i2p.android.ext.floatingactionbutton.FloatingActionButton;
-import net.i2p.android.ext.floatingactionbutton.FloatingActionsMenu;
+package toan.android.floatingactionmenu.sample;
 
 import android.app.Activity;
 import android.graphics.drawable.ShapeDrawable;
@@ -11,7 +8,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+import toan.android.floatingactionmenu.FloatingActionButton;
+import toan.android.floatingactionmenu.FloatingActionsMenu;
+
+public class SampleBasicActivity extends Activity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
     findViewById(R.id.pink_icon).setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
-        Toast.makeText(MainActivity.this, "Clicked pink Floating Action Button", Toast.LENGTH_SHORT).show();
+        Toast.makeText(SampleBasicActivity.this, "Clicked pink Floating Action Button", Toast.LENGTH_SHORT).show();
       }
     });
 

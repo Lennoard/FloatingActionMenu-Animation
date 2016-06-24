@@ -1,4 +1,4 @@
-package net.i2p.android.ext.floatingactionbutton;
+package toan.android.floatingactionmenu;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -72,19 +72,19 @@ public class FloatingActionButton extends ImageButton {
   }
 
   void init(Context context, AttributeSet attributeSet) {
-    TypedArray attr = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingActionButton, 0, 0);
-    mColorNormal = attr.getColor(R.styleable.FloatingActionButton_fab_colorNormal, getColor(R.color.default_normal));
-    mColorPressed = attr.getColor(R.styleable.FloatingActionButton_fab_colorPressed, getColor(R.color.default_pressed));
-    mColorDisabled = attr.getColor(R.styleable.FloatingActionButton_fab_colorDisabled, getColor(R.color.default_disabled));
-    mSize = attr.getInt(R.styleable.FloatingActionButton_fab_size, SIZE_NORMAL);
-    mIcon = attr.getResourceId(R.styleable.FloatingActionButton_fab_icon, 0);
-    mTitle = attr.getString(R.styleable.FloatingActionButton_fab_title);
-    mStrokeVisible = attr.getBoolean(R.styleable.FloatingActionButton_fab_stroke_visible, true);
+    TypedArray attr = context.obtainStyledAttributes(attributeSet, toan.android.floatingactionmenu.R.styleable.FloatingActionButton, 0, 0);
+    mColorNormal = attr.getColor(toan.android.floatingactionmenu.R.styleable.FloatingActionButton_fab_colorNormal, getColor(toan.android.floatingactionmenu.R.color.default_normal));
+    mColorPressed = attr.getColor(toan.android.floatingactionmenu.R.styleable.FloatingActionButton_fab_colorPressed, getColor(toan.android.floatingactionmenu.R.color.default_pressed));
+    mColorDisabled = attr.getColor(toan.android.floatingactionmenu.R.styleable.FloatingActionButton_fab_colorDisabled, getColor(toan.android.floatingactionmenu.R.color.default_disabled));
+    mSize = attr.getInt(toan.android.floatingactionmenu.R.styleable.FloatingActionButton_fab_size, SIZE_NORMAL);
+    mIcon = attr.getResourceId(toan.android.floatingactionmenu.R.styleable.FloatingActionButton_fab_icon, 0);
+    mTitle = attr.getString(toan.android.floatingactionmenu.R.styleable.FloatingActionButton_fab_title);
+    mStrokeVisible = attr.getBoolean(toan.android.floatingactionmenu.R.styleable.FloatingActionButton_fab_stroke_visible, true);
     attr.recycle();
 
     updateCircleSize();
-    mShadowRadius = getDimension(R.dimen.fab_shadow_radius);
-    mShadowOffset = getDimension(R.dimen.fab_shadow_offset);
+    mShadowRadius = getDimension(toan.android.floatingactionmenu.R.dimen.fab_shadow_radius);
+    mShadowOffset = getDimension(toan.android.floatingactionmenu.R.dimen.fab_shadow_offset);
     updateDrawableSize();
 
     updateBackground();
@@ -95,7 +95,7 @@ public class FloatingActionButton extends ImageButton {
   }
 
   private void updateCircleSize() {
-    mCircleSize = getDimension(mSize == SIZE_NORMAL ? R.dimen.fab_size_normal : R.dimen.fab_size_mini);
+    mCircleSize = getDimension(mSize == SIZE_NORMAL ? toan.android.floatingactionmenu.R.dimen.fab_size_normal : toan.android.floatingactionmenu.R.dimen.fab_size_mini);
   }
 
   public void setSize(@FAB_SIZE int size) {
@@ -214,7 +214,7 @@ public class FloatingActionButton extends ImageButton {
   }
 
   TextView getLabelView() {
-    return (TextView) getTag(R.id.fab_label);
+    return (TextView) getTag(toan.android.floatingactionmenu.R.id.fab_label);
   }
 
   public String getTitle() {
@@ -228,18 +228,18 @@ public class FloatingActionButton extends ImageButton {
   }
 
   void updateBackground() {
-    final float strokeWidth = getDimension(R.dimen.fab_stroke_width);
+    final float strokeWidth = getDimension(toan.android.floatingactionmenu.R.dimen.fab_stroke_width);
     final float halfStrokeWidth = strokeWidth / 2f;
 
     LayerDrawable layerDrawable = new LayerDrawable(
         new Drawable[] {
-            getResources().getDrawable(mSize == SIZE_NORMAL ? R.drawable.fab_bg_normal : R.drawable.fab_bg_mini),
+            getResources().getDrawable(mSize == SIZE_NORMAL ? toan.android.floatingactionmenu.R.drawable.fab_bg_normal : toan.android.floatingactionmenu.R.drawable.fab_bg_mini),
             createFillDrawable(strokeWidth),
             createOuterStrokeDrawable(strokeWidth),
             getIconDrawable()
         });
 
-    int iconOffset = (int) (mCircleSize - getDimension(R.dimen.fab_icon_size)) / 2;
+    int iconOffset = (int) (mCircleSize - getDimension(toan.android.floatingactionmenu.R.dimen.fab_icon_size)) / 2;
 
     int circleInsetHorizontal = (int) (mShadowRadius);
     int circleInsetTop = (int) (mShadowRadius - mShadowOffset);
