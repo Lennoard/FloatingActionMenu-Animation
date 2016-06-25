@@ -26,7 +26,6 @@ public class ListViewFragment extends Fragment {
             list.setAdapter(listAdapter);
 
             final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) root.findViewById(R.id.multiple_actions);
-
             menuMultipleActions.attachToListView(list);
             FloatingActionButton actionA = (FloatingActionButton) root.findViewById(R.id.action_a);
             actionA.setOnClickListener(new View.OnClickListener() {

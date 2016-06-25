@@ -720,15 +720,17 @@ public class FloatingActionsMenu extends ViewGroup {
                     FabAnimationUtils.translationY(this, visible, height, getMarginBottom());
                     break;
                 case FabAnimationUtils.ANIM_SCALE:
-                    FabAnimationUtils.scale(mAddButton, visible);
+                    FabAnimationUtils.scale(this, mAddButton, visible);
                     break;
             }
 
             // On pre-Honeycomb a translated view is still clickable, so we need to disable clicks manually
             if (!hasHoneycombApi()) {
-                setClickable(visible);
+                setClickAbleAll(visible);
             }
         }
+
+
     }
 
     public void attachToListView(@NonNull AbsListView listView) {
@@ -936,4 +938,10 @@ public class FloatingActionsMenu extends ViewGroup {
         }
     }
 
+    private void setClickAbleAll(boolean clickable) {
+        for (int i = 0; i < getChildCount(); i++) {
+            View child = getChildAt(i);
+            child.setEnabled(clickable);
+        }
+    }
 }

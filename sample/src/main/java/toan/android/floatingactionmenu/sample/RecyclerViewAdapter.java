@@ -3,8 +3,10 @@ package toan.android.floatingactionmenu.sample;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private final Context mContext;
@@ -28,6 +30,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         int flagResId = mContext.getResources().getIdentifier(values[1], "drawable", mContext.getPackageName());
         viewHolder.mTextView.setText(countryName);
         viewHolder.mTextView.setCompoundDrawablesWithIntrinsicBounds(flagResId, 0, 0, 0);
+        viewHolder.mTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "test", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

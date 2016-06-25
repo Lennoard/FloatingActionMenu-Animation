@@ -1,12 +1,11 @@
 FloatingActionButton
 ====================
-Yet another library for drawing [Material Design promoted actions](http://www.google.com/design/spec/patterns/promoted-actions.html).
-
+This library is an extended version of the [FloatingActionButton](https://github.com/str4d/android-floating-action-button) library by [str4d](https://github.com/str4d) with adding Scroll handler and animation for floatingActionMenu button
 This library supports API 7+.
 
 Features
 ========
-* Support all features from its' base version: [FloatingActionButton](ttps://github.com/str4d/android-floating-action-button)
+* Support all features from its' base version: [FloatingActionButton](https://github.com/str4d/android-floating-action-button)
 * Scroll handler listener custom and animations:
 
     Scale:
@@ -23,7 +22,7 @@ The library is available on jcenter(). Just add the dependency to your `build.gr
 
 ```groovy
 dependencies {
-    compile 'com.github.toanvc:floatingactionmenu:0.8.1'
+    compile 'com.github.toanvc:floatingactionmenu:0.8.7'
 }
 ```
 
@@ -33,7 +32,7 @@ dependencies {
 
 Credits
 =======
-This library is a extended version of the [FloatingActionButton](https://github.com/str4d/android-floating-action-button) library by [str4d](https://github.com/str4d).
+This library is an extended version of the [FloatingActionButton](https://github.com/str4d/android-floating-action-button) library by [str4d](https://github.com/str4d).
 
 That library used [FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) library by [Oleksandr Melnykov](https://github.com/makovkastar) as a base for development for handler of scroll.
 
