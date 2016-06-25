@@ -1,7 +1,6 @@
 FloatingActionButton
 ====================
-Yet another library for drawing [Material Design promoted actions](http://www.google.com/design/spec/patterns/promoted-actions.html).
-
+This library is a extended version of the [FloatingActionButton](https://github.com/str4d/android-floating-action-button) library by [str4d](https://github.com/str4d) with adding Scroll handler and animation for floatingActionMenu button
 This library supports API 7+.
 
 Features
