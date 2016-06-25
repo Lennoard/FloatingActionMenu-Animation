@@ -1,4 +1,27 @@
 apply plugin: 'com.android.library'
+ext {
+  bintrayRepo = 'maven'
+  bintrayName = 'ScrollFloatingActionMenu'
+
+  publishedGroupId = 'com.github.toanvc'
+  libraryName = 'floatingactionmenu'
+  artifact = 'floatingactionmenu'
+
+  libraryDescription = 'An extended library from FloatingActionMenu, with Scroll handler and animation'
+
+  siteUrl = 'https://github.com/toanvc/android-floating-action-button'
+  gitUrl = 'https://github.com/toanvc/android-floating-action-button.git'
+
+  libraryVersion = '0.8.1'
+
+  developerId = 'toanvc'
+  developerName = 'Toan Chi Vu'
+  developerEmail = 'galaxy.man.0205@gmail.com'
+
+  licenseName = 'The Apache Software License, Version 2.0'
+  licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+  allLicenses = ["Apache-2.0"]
+}
 
 android {
   compileSdkVersion 23
@@ -24,7 +47,10 @@ dependencies {
   compile 'com.android.support:support-v4:23.4.0'
   compile 'com.android.support:recyclerview-v7:23.4.0'
   compile 'com.nineoldandroids:library:2.4.0'
-  compile group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.0'
+
+
 }
 
-apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
+// Place it at the end of the file
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
