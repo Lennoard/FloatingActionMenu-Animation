@@ -8,36 +8,27 @@ Features
 ========
 * Support all features from its' base version: [FloatingActionButton](ttps://github.com/str4d/android-floating-action-button)
 * Scroll handler listener custom and animations:
+
     Scale:
+
     <img src="screenshots/scale.gif" width="30%">
   
-    TranslationY:     
+    TranslationY:  
+
     <img src="screenshots/translationY.gif" width="30%">
     
 Usage
 =====
-Just add the dependency to your `build.gradle`:
+The library is available on jcenter(). Just add the dependency to your `build.gradle`:
 
 ```groovy
 dependencies {
-    compile 'toan.android:floatingactionbutton:1.0'
+    compile 'com.github.toanvc:floatingactionmenu:0.8.1'
 }
 ```
 
-The library is available on Maven Central (`mavenCentral()` in your repositories list).
 
-Alternatively, you can build it manually and install it in your local Maven repo:
 
-```
-git clone https://github.com/toanvc/android-floating-action-button
-cd android-floating-action-button
-cd library
-gradle installArchives
-```
-
-Then add `mavenLocal()` to the top of your repositories list (so it is checked first).
-
-To see how the buttons are added to your xml layouts, check the sample project.
 
 
 Credits
