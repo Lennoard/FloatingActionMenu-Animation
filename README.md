@@ -9,9 +9,11 @@ Features
 * Support all features from its' base version: [FloatingActionButton](ttps://github.com/str4d/android-floating-action-button)
 * Scroll handler listener custom and animations:
     Scale:
-    ![Demo](screenshots/scale.gif)
+    <img src="screenshots/scale.gif" width="30%">
+  
     TranslationY:     
-    ![Demo](screenshots/translationY.gif)
+    <img src="screenshots/translationY.gif" width="30%">
+    
 Usage
 =====
 Just add the dependency to your `build.gradle`:
