@@ -6,6 +6,8 @@ This library supports API 7+.
 Features
 ========
 * Support all features from its' base version: [FloatingActionButton](https://github.com/str4d/android-floating-action-button)
+* Using custom FloatingActionMenu icon (default is add button): 
+    fab:fab_menuIcon="@drawable/sort"
 * Scroll handler listener custom and animations:
 
     Scale:
@@ -15,7 +17,7 @@ Features
     TranslationY:  
 
     <img src="screenshots/translationY.gif" width="30%">
-    
+
 Usage
 =====
 The library is available on jcenter(). Just add the dependency to your `build.gradle`:
