@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import toan.android.floatingactionmenu.FloatingActionButton;
 import toan.android.floatingactionmenu.FloatingActionsMenu;
@@ -32,13 +31,15 @@ public class ListViewFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     menuMultipleActions.collapse();
+                    menuMultipleActions.setIcon(getActivity().getResources().getDrawable(R.drawable.it));
                 }
             });
             FloatingActionButton actionB = (FloatingActionButton) root.findViewById(R.id.action_b);
             actionB.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getActivity(), "Do nothing!", Toast.LENGTH_SHORT).show();
+                    menuMultipleActions.collapse();
+                    menuMultipleActions.setVisibleWithAnimation(false);
                 }
             });
 

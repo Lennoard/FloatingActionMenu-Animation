@@ -43,6 +43,7 @@
             <enum name="none" value="0"/>
             <enum name="translationY" value="1"/>
             <enum name="scale" value="2"/>
+            <enum name="fade" value="3"/>
         </attr>
 
     </declare-styleable>

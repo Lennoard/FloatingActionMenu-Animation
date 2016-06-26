@@ -8,7 +8,7 @@ Features
 * Support all features from its' base version: [FloatingActionButton](https://github.com/str4d/android-floating-action-button)
 * Using custom FloatingActionMenu icon (default is add button): 
     fab:fab_menuIcon="@drawable/sort"
-* Scroll handler listener custom and animations:
+* Scroll handler listener custom and animations: scale, translationY, fade, <to be continued>
 
     Scale:
 
@@ -24,11 +24,17 @@ The library is available on jcenter(). Just add the dependency to your `build.gr
 
 ```groovy
 dependencies {
-    compile 'com.github.toanvc:floatingactionmenu:0.8.7'
+    compile 'com.github.toanvc:floatingactionmenu:0.8.8'
 }
 ```
 
-
+Add these lines to proguard, make sure that RotatingDrawable run well:
+```groovy
+-keepclassmembers class toan.android.floatingactionmenu.FloatingActionsMenu$RotatingDrawable {
+   void set*(***);
+   *** get*();
+}
+```
 
 
 

@@ -74,8 +74,10 @@ public class FloatingActionsMenu extends ViewGroup {
     private int mButtonsCount;
     private Drawable mDrawableIcon;
     private int mScrollThreshold;
-    //state of floatingActionMenu visible or not
-    private boolean mVisible;
+    //state of floatingActionMenu visible or not, available or disable scrolling handler
+    private boolean mVisible = true;//by default it's true, enable when add to list/scroll
+    //state of floatingActionMenu when scrolling visible or not
+    private boolean mFloatingVisible;
 
     private TouchDelegateGroup mTouchDelegateGroup;
 
@@ -108,7 +110,7 @@ public class FloatingActionsMenu extends ViewGroup {
         mLabelsVerticalOffset = getResources().getDimensionPixelSize(toan.android.floatingactionmenu.R.dimen.fab_shadow_offset);
         mScrollThreshold = getResources().getDimensionPixelOffset(R.dimen.fab_scroll_threshold);
 
-        mVisible = true;
+        mFloatingVisible = true;
 
         mTouchDelegateGroup = new TouchDelegateGroup(this);
         setTouchDelegate(mTouchDelegateGroup);
@@ -140,6 +142,15 @@ public class FloatingActionsMenu extends ViewGroup {
 
     public void setOnFloatingActionsMenuUpdateListener(OnFloatingActionsMenuUpdateListener listener) {
         mListener = listener;
+    }
+
+    public void setIcon(Drawable drawable){
+        if (drawable == null){
+            throw new NullPointerException("FloatingActionsMenu setIcon can not be null!");
+        }
+        mDrawableIcon = drawable;
+        mAddButton.setIconDrawable(mDrawableIcon);
+
     }
 
     private boolean expandsHorizontally() {
@@ -234,6 +245,34 @@ public class FloatingActionsMenu extends ViewGroup {
         removeView(button);
         button.setTag(toan.android.floatingactionmenu.R.id.fab_label, null);
         mButtonsCount--;
+    }
+
+    /**
+     * state of floatingActionMenu visible or not, available or disable scrolling handler
+     *
+     * @param visible : true if enable scrolling animation and visible state
+     *                false if disable scrolling animation and gone state
+     */
+    public void setVisible(boolean visible) {
+        setVisible(visible, false);
+    }
+
+    /**
+     * state of floatingActionMenu visible or not, available or disable scrolling handler
+     *
+     * @param visible : true if enable scrolling animation and visible state
+     *                false if disable scrolling animation and gone state
+     */
+    public void setVisibleWithAnimation(boolean visible) {
+        setVisible(visible, true);
+    }
+
+    private void setVisible(boolean visible, boolean animation) {
+        mVisible = visible;
+        if (animation) {
+            FabAnimationUtils.scale(this, mAddButton, visible);
+        } else
+            this.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     private int getColor(@ColorRes int id) {
@@ -675,11 +714,15 @@ public class FloatingActionsMenu extends ViewGroup {
     //=============Adding listener=========
 
     private void show() {
-        toggleScroll(true, false);
+        if (mVisible) {
+            toggleScroll(true, false);
+        }
     }
 
     private void hide() {
-        toggleScroll(false, false);
+        if (mVisible) {
+            toggleScroll(false, false);
+        }
     }
 
 
@@ -694,8 +737,8 @@ public class FloatingActionsMenu extends ViewGroup {
 
 
     private void toggleScroll(final boolean visible, boolean force) {
-        if (mVisible != visible || force) {
-            mVisible = visible;
+        if (mFloatingVisible != visible || force) {
+            mFloatingVisible = visible;
             if (isExpanded())
                 collapse();
 
@@ -725,6 +768,9 @@ public class FloatingActionsMenu extends ViewGroup {
                     break;
                 case FabAnimationUtils.ANIM_SCALE:
                     FabAnimationUtils.scale(this, mAddButton, visible);
+                    break;
+                case FabAnimationUtils.ANIM_FADE:
+                    FabAnimationUtils.fade(this, visible);
                     break;
             }
 

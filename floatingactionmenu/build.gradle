@@ -14,7 +14,7 @@ ext { //codes for upload to jcenter - start
   siteUrl = 'https://github.com/toanvc/android-floating-action-button'
   gitUrl = 'https://github.com/toanvc/android-floating-action-button.git'
 
-  libraryVersion = '0.8.7'
+  libraryVersion = '0.8.8'
 
   developerId = properties.getProperty("developerId")
   developerName = properties.getProperty("developerName")

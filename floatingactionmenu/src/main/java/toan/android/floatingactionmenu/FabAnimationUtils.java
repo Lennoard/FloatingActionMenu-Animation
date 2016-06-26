@@ -2,7 +2,10 @@ package toan.android.floatingactionmenu;
 
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
+import android.view.animation.OvershootInterpolator;
 
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.view.ViewPropertyAnimator;
@@ -14,18 +17,22 @@ public class FabAnimationUtils {
     public static final int ANIM_NONE = 0;
     public static final int ANIM_TRANSLATION_Y = 1;
     public static final int ANIM_SCALE = 2;
+    public static final int ANIM_FADE = 3;
     //time animation when scrolling
     private static final int TRANSLATE_DURATION_MILLIS = 250;
     private static final Interpolator mInterpolator = new AccelerateDecelerateInterpolator();
-
+    private static final Interpolator mInterpolatorAccelerate = new AccelerateInterpolator();
+    private static final Interpolator mInterpolatorDecelerate = new DecelerateInterpolator();
+    private static final OvershootInterpolator mInterpolatorOverShoot = new OvershootInterpolator();
 
     static void scale(View group, View view, boolean visible) {
         AnimListener animListener = new AnimListener(group, visible);
         float scale = visible ? 1 : 0;
-        ViewPropertyAnimator.animate(view).setInterpolator(mInterpolator)
+        Interpolator interpolator = visible ? mInterpolatorOverShoot : mInterpolatorAccelerate;
+        ViewPropertyAnimator.animate(view).setInterpolator(interpolator)
                 .setDuration(TRANSLATE_DURATION_MILLIS)
                 .scaleX(scale);
-        ViewPropertyAnimator.animate(view).setInterpolator(mInterpolator)
+        ViewPropertyAnimator.animate(view).setInterpolator(interpolator)
                 .setDuration(TRANSLATE_DURATION_MILLIS)
                 .scaleY(scale).setListener(animListener);
 
@@ -38,6 +45,15 @@ public class FabAnimationUtils {
                 .translationY(translationY);
     }
 
+    static void fade(View group,boolean visible) {
+        AnimListener animListener = new AnimListener(group, visible);
+        float scale = visible ? 1 : 0;
+        Interpolator interpolator = visible ? mInterpolator : mInterpolatorAccelerate;
+        ViewPropertyAnimator.animate(group).setInterpolator(interpolator)
+                .setDuration(TRANSLATE_DURATION_MILLIS)
+                .alpha(scale).setListener(animListener);
+
+    }
     //TODO: later
     static void rotate(View view, boolean visible, int height, int marginBottom) {
         float rotateXBy = visible ? 500 : -500;
