@@ -18,6 +18,7 @@ public class FabAnimationUtils {
     public static final int ANIM_TRANSLATION_Y = 1;
     public static final int ANIM_SCALE = 2;
     public static final int ANIM_FADE = 3;
+    public static final int ANIM_TRANSLATION_X = 4;
     //time animation when scrolling
     private static final int TRANSLATE_DURATION_MILLIS = 250;
     private static final Interpolator mInterpolator = new AccelerateDecelerateInterpolator();
@@ -43,6 +44,17 @@ public class FabAnimationUtils {
         ViewPropertyAnimator.animate(view).setInterpolator(mInterpolator)
                 .setDuration(TRANSLATE_DURATION_MILLIS)
                 .translationY(translationY);
+    }
+
+    static void translationX(View group, View view, boolean visible, int width, int marginRight) {
+        int translationX = visible ? 0 : width + marginRight;
+        ViewPropertyAnimator.animate(group).setInterpolator(mInterpolator)
+                .setDuration(TRANSLATE_DURATION_MILLIS)
+                .translationX(translationX);
+        float rotate = visible ? -720 : 720;
+                ViewPropertyAnimator.animate(view).setInterpolator(mInterpolator)
+                .setDuration(TRANSLATE_DURATION_MILLIS)
+                .rotation(rotate);
     }
 
     static void fade(View group,boolean visible) {

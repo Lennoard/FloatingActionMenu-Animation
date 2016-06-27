@@ -21,7 +21,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         fab:fab_addButtonColorNormal="@color/white"
-        fab:fab_animationScroll="scale"
+        fab:fab_animationScroll="translationX"
         fab:fab_addButtonColorPressed="@color/white_pressed"
         fab:fab_addButtonPlusIconColor="@color/half_black"
         fab:fab_labelStyle="@style/menu_labels_style"
@@ -35,6 +35,7 @@
             android:layout_height="wrap_content"
             fab:fab_icon="@android:drawable/btn_star"
             fab:fab_colorNormal="@color/white"
+
             fab:fab_title="Action A - collapse"
             fab:fab_colorPressed="@color/white_pressed"/>
 

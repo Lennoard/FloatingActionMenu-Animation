@@ -715,13 +715,13 @@ public class FloatingActionsMenu extends ViewGroup {
 
     private void show() {
         if (mVisible) {
-            toggleScroll(true, false);
+            toggleScroll(true);
         }
     }
 
     private void hide() {
         if (mVisible) {
-            toggleScroll(false, false);
+            toggleScroll(false);
         }
     }
 
@@ -735,9 +735,17 @@ public class FloatingActionsMenu extends ViewGroup {
         return marginBottom;
     }
 
+    private int getMarginRight() {
+        int marginRight = 0;
+        final ViewGroup.LayoutParams layoutParams = getLayoutParams();
+        if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+            marginRight = ((MarginLayoutParams) layoutParams).rightMargin;
+        }
+        return marginRight;
+    }
 
-    private void toggleScroll(final boolean visible, boolean force) {
-        if (mFloatingVisible != visible || force) {
+    private void toggleScroll(final boolean visible) {
+        if (mFloatingVisible != visible) {
             mFloatingVisible = visible;
             if (isExpanded())
                 collapse();
@@ -747,7 +755,7 @@ public class FloatingActionsMenu extends ViewGroup {
                     break;
                 case FabAnimationUtils.ANIM_TRANSLATION_Y:
                     int height = getHeight();
-                    if (height == 0 && !force) {
+                    if (height == 0) {
                         ViewTreeObserver vto = getViewTreeObserver();
                         if (vto.isAlive()) {
                             vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
@@ -757,7 +765,7 @@ public class FloatingActionsMenu extends ViewGroup {
                                     if (currentVto.isAlive()) {
                                         currentVto.removeOnPreDrawListener(this);
                                     }
-                                    toggleScroll(visible, true);
+                                    toggleScroll(visible);
                                     return true;
                                 }
                             });
@@ -771,6 +779,27 @@ public class FloatingActionsMenu extends ViewGroup {
                     break;
                 case FabAnimationUtils.ANIM_FADE:
                     FabAnimationUtils.fade(this, visible);
+                    break;
+                case FabAnimationUtils.ANIM_TRANSLATION_X:
+                    int width = getWidth();
+                    if (width == 0) {
+                        ViewTreeObserver vto = getViewTreeObserver();
+                        if (vto.isAlive()) {
+                            vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+                                @Override
+                                public boolean onPreDraw() {
+                                    ViewTreeObserver currentVto = getViewTreeObserver();
+                                    if (currentVto.isAlive()) {
+                                        currentVto.removeOnPreDrawListener(this);
+                                    }
+                                    toggleScroll(visible);
+                                    return true;
+                                }
+                            });
+                            return;
+                        }
+                    }
+                    FabAnimationUtils.translationX(this,mAddButton, visible, width, getMarginRight());
                     break;
             }
 
