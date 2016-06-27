@@ -24,7 +24,7 @@
         style="@style/menu_labels_style"
         android:layout_marginBottom="48dp"/>
 
-    <toan.android.floatingactionmenu.AddFloatingActionButton
+    <toan.android.floatingactionmenu.FloatingActionButton
         android:id="@+id/semi_transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"/>
 
-    <toan.android.floatingactionmenu.AddFloatingActionButton
+    <toan.android.floatingactionmenu.FloatingActionButton
         android:id="@+id/normal_plus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

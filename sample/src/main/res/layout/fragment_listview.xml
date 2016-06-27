@@ -1,52 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:fab="http://schemas.android.com/apk/res-auto"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <ListView
-        android:id="@android:id/list"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:cacheColorHint="@android:color/transparent"
-        android:headerDividersEnabled="false"/>
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-    <toan.android.floatingactionmenu.FloatingActionsMenu
-        android:id="@+id/multiple_actions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        fab:fab_menuIcon="@drawable/sort"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        fab:fab_addButtonColorNormal="@color/white"
-        fab:fab_animationScroll="translationX"
-        fab:fab_addButtonColorPressed="@color/white_pressed"
-        fab:fab_addButtonPlusIconColor="@color/half_black"
-        fab:fab_labelStyle="@style/menu_labels_style"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginEnd="16dp">
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@android:color/transparent"
+            android:headerDividersEnabled="false" />
 
-        <toan.android.floatingactionmenu.FloatingActionButton
-            android:id="@+id/action_a"
+        <toan.android.floatingactionmenu.FloatingActionsMenu
+            android:id="@+id/multiple_actions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_icon="@android:drawable/btn_star"
-            fab:fab_colorNormal="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            fab:fab_addButtonColorNormal="@color/white"
+            fab:fab_addButtonColorPressed="@color/white_pressed"
+            fab:fab_addButtonPlusIconColor="@color/half_black"
+            fab:fab_animationScroll="scale"
+            fab:fab_labelStyle="@style/menu_labels_style"
+            fab:fab_menuIcon="@drawable/sort">
 
-            fab:fab_title="Action A - collapse"
-            fab:fab_colorPressed="@color/white_pressed"/>
+            <toan.android.floatingactionmenu.FloatingActionButton
+                android:id="@+id/action_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                fab:fab_colorNormal="@color/white"
+                fab:fab_colorPressed="@color/white_pressed"
+                fab:fab_icon="@drawable/sort_az"
+                fab:fab_size="mini"
+                fab:fab_title="Sort A-Z" />
 
-        <toan.android.floatingactionmenu.FloatingActionButton
-            android:id="@+id/action_b"
-            android:layout_width="wrap_content"
+            <toan.android.floatingactionmenu.FloatingActionButton
+                android:id="@+id/action_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                fab:fab_colorNormal="@color/white"
+                fab:fab_colorPressed="@color/white_pressed"
+                fab:fab_icon="@drawable/sort_za"
+                fab:fab_size="mini"
+                fab:fab_title="Sort Z-A" />
+
+        </toan.android.floatingactionmenu.FloatingActionsMenu>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_show_floatingaction"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            fab:fab_colorNormal="@color/white"
-            fab:fab_icon="@android:drawable/ic_dialog_email"
-            fab:fab_title="Action with a very long name that won\'t fit on the screen"
-            fab:fab_colorPressed="@color/white_pressed"/>
+            android:layout_weight="1"
+            android:text="@string/show_floating" />
 
-    </toan.android.floatingactionmenu.FloatingActionsMenu>
-</RelativeLayout>
+        <Button
+            android:id="@+id/btn_hide_floatingaction"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/hide_floating" />
+    </LinearLayout>
+</LinearLayout>

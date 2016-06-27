@@ -29,10 +29,10 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        fab:fab_animationScroll="fade"
         fab:fab_addButtonColorNormal="@color/white"
         fab:fab_addButtonColorPressed="@color/white_pressed"
         fab:fab_addButtonPlusIconColor="@color/half_black"
+        fab:fab_animationScroll="fade"
         fab:fab_labelStyle="@style/menu_labels_style">
 
         <toan.android.floatingactionmenu.FloatingActionButton
@@ -41,7 +41,8 @@
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/white"
             fab:fab_colorPressed="@color/white_pressed"
-            fab:fab_title="Action A" />
+            fab:fab_icon="@drawable/sort_az"
+            fab:fab_title="Sort A-Z" />
 
         <toan.android.floatingactionmenu.FloatingActionButton
             android:id="@+id/action_b"
@@ -49,7 +50,8 @@
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/white"
             fab:fab_colorPressed="@color/white_pressed"
-            fab:fab_title="Action with a very long name that won\'t fit on the screen" />
+            fab:fab_icon="@drawable/sort_za"
+            fab:fab_title="Sort Z-A" />
 
     </toan.android.floatingactionmenu.FloatingActionsMenu>
 </RelativeLayout>

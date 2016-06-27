@@ -268,6 +268,9 @@ public class FloatingActionsMenu extends ViewGroup {
     }
 
     private void setVisible(boolean visible, boolean animation) {
+        if (mVisible == visible){
+            return;
+        }
         mVisible = visible;
         if (animation) {
             FabAnimationUtils.scale(this, mAddButton, visible);

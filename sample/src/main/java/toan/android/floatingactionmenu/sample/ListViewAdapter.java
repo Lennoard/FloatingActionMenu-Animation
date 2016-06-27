@@ -8,23 +8,45 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 public class ListViewAdapter extends BaseAdapter {
+    public enum SortType {
+        AZ, ZA
+    }
+
     private final Context mContext;
-    private final String[] mDataset;
+    private final List<String> mDataset;
+
 
     public ListViewAdapter(Context context, String[] dataset) {
         mContext = context;
-        mDataset = dataset;
+        mDataset = Arrays.asList(dataset);
+    }
+
+    public void sort(SortType type) {
+        switch (type) {
+            case AZ:
+                Collections.sort(mDataset);
+                break;
+            case ZA:
+                Collections.sort(mDataset, sortZa);
+                break;
+        }
+        notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return mDataset.length;
+        return mDataset.size();
     }
 
     @Override
     public String getItem(int position) {
-        return mDataset[position];
+        return mDataset.get(position);
     }
 
     @Override
@@ -44,7 +66,7 @@ public class ListViewAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        String[] values = mDataset[position].split(",");
+        String[] values = mDataset.get(position).split(",");
         String countryName = values[0];
         int flagResId = mContext.getResources().getIdentifier(values[1], "drawable", mContext.getPackageName());
         viewHolder.mTextView.setText(countryName);
@@ -61,4 +83,18 @@ public class ListViewAdapter extends BaseAdapter {
     private static class ViewHolder {
         public TextView mTextView;
     }
+
+    public static Comparator<String> sortZa = new Comparator<String>() {
+        @Override
+        public int compare(String lhs, String rhs) {
+            if (lhs == null) {
+                if (rhs == null) {
+                    return 0;
+                } else {
+                    return -1;
+                }
+            }
+            return -lhs.compareTo(rhs);
+        }
+    };
 }

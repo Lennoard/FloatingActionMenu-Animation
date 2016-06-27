@@ -8,13 +8,29 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private final Context mContext;
-    private final String[] mDataset;
+    private final List<String> mDataset;
 
     public RecyclerViewAdapter(Context context, String[] dataset) {
         mContext = context;
-        mDataset = dataset;
+        mDataset = Arrays.asList(dataset);
+    }
+
+    public void sort(ListViewAdapter.SortType type) {
+        switch (type) {
+            case AZ:
+                Collections.sort(mDataset);
+                break;
+            case ZA:
+                Collections.sort(mDataset, ListViewAdapter.sortZa);
+                break;
+        }
+        notifyDataSetChanged();
     }
 
     @Override
@@ -25,7 +41,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        String[] values = mDataset[position].split(",");
+        String[] values = mDataset.get(position).split(",");
         String countryName = values[0];
         int flagResId = mContext.getResources().getIdentifier(values[1], "drawable", mContext.getPackageName());
         viewHolder.mTextView.setText(countryName);
@@ -40,7 +56,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return mDataset.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

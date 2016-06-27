@@ -7,8 +7,8 @@ Features
 ========
 * Support all features from its' base version: [FloatingActionButton](https://github.com/str4d/android-floating-action-button)
 * Using custom FloatingActionMenu icon (default is add button): 
-    fab:fab_menuIcon="@drawable/sort"
-* Scroll handler listener custom and animations: scale, translationY, fade, <to be continued>
+ *fab:fab_menuIcon="@drawable/sort"
+* Scroll handler listener custom and animations: scale, translationY, translationX, fade
 
     Scale:
 
@@ -18,13 +18,17 @@ Features
 
     <img src="screenshots/translationY.gif" width="30%">
 
+Sample
+=====
+Download this [apk](https://github.com/toanvc/FloatingActionMenu-Animation/raw/master/screenshots/Sample_FloatingActionsMenu.apk) or run sample project 
+
 Usage
 =====
 The library is available on jcenter(). Just add the dependency to your `build.gradle`:
 
 ```groovy
 dependencies {
-    compile 'com.github.toanvc:floatingactionmenu:0.8.8'
+    compile 'com.github.toanvc:floatingactionmenu:0.8.9'
 }
 ```
 
