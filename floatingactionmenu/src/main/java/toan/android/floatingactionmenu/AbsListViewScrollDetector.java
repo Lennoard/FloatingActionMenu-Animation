@@ -1,6 +1,6 @@
 package toan.android.floatingactionmenu;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 import android.widget.AbsListView;
 

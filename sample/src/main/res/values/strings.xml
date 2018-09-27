@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">FloatingActionMenu scroll animation</string>
-    <string name="show_floating">Show floatingBtn</string>
-    <string name="hide_floating">Hide floatingBtn</string>
-
-    <string name="menu_icon">Menu icon</string>
-    <string name="child_icon">Child icon</string>
-</resources>

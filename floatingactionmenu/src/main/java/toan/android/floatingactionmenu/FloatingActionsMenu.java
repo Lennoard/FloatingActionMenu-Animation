@@ -13,10 +13,6 @@ import android.graphics.drawable.shapes.Shape;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.ColorRes;
-import android.support.annotation.NonNull;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.ContextThemeWrapper;
 import android.view.TouchDelegate;
@@ -35,6 +31,10 @@ import com.nineoldandroids.animation.AnimatorListenerAdapter;
 import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.view.ViewHelper;
+
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class FloatingActionsMenu extends ViewGroup {
     public static final int EXPAND_UP = 0;
@@ -560,12 +560,12 @@ public class FloatingActionsMenu extends ViewGroup {
             animator.addListener(new AnimatorListenerAdapter() {
                 @Override
                 public void onAnimationEnd(Animator animation) {
-                    ViewCompat.setLayerType(view, ViewCompat.LAYER_TYPE_NONE, null);
+                    view.setLayerType(View.LAYER_TYPE_NONE, null);
                 }
 
                 @Override
                 public void onAnimationStart(Animator animation) {
-                    ViewCompat.setLayerType(view, ViewCompat.LAYER_TYPE_HARDWARE, null);
+                    view.setLayerType(View.LAYER_TYPE_HARDWARE, null);
                 }
             });
         }
@@ -963,7 +963,7 @@ public class FloatingActionsMenu extends ViewGroup {
         }
 
         @Override
-        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+        public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
             if (mOnScrollListener != null) {
                 mOnScrollListener.onScrolled(recyclerView, dx, dy);
             }

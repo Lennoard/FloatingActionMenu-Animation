@@ -1,6 +1,7 @@
 package toan.android.floatingactionmenu;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 public abstract class RecyclerViewScrollDetector extends RecyclerView.OnScrollListener {
     private int mScrollThreshold;
@@ -10,7 +11,7 @@ public abstract class RecyclerViewScrollDetector extends RecyclerView.OnScrollLi
     abstract void onScrollDown();
 
     @Override
-    public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+    public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
         boolean isSignificantDelta = Math.abs(dy) > mScrollThreshold;
         if (isSignificantDelta) {
             if (dy > 0) {
