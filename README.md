@@ -1,7 +1,7 @@
-FloatingActionButton
+FloatingActionButtonX
 ====================
-This library is an extended version of the [FloatingActionButton](https://github.com/str4d/android-floating-action-button) library by [str4d](https://github.com/str4d) with adding Scroll handler and animation for floatingActionMenu button
-This library supports API 7+.
+This library is an extended version of the [FloatingActionButton](https://github.com/str4d/android-floating-action-button) library by [str4d](https://github.com/str4d) with adding Scroll handler and animation for floatingActionMenu button with support for Android-X.
+This library supports API 11+.
 
 Features
 ========
