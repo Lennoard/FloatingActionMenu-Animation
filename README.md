@@ -18,20 +18,23 @@ Features
 
     <img src="screenshots/translationY.gif" width="30%">
 
-Sample
-=====
-Download this [apk](https://github.com/toanvc/FloatingActionMenu-Animation/raw/master/screenshots/Sample_FloatingActionsMenu.apk) or run sample project 
-
 Usage
 =====
-The library is available on jcenter(). Just add the dependency to your `build.gradle`:
-
+Add jitpack in your root build.gradle at the end of repositories:
 ```groovy
-dependencies {
-    compile 'com.github.toanvc:floatingactionmenu:0.8.9'
+allprojects {
+    repositories {
+	    ...
+		maven { url 'https://jitpack.io' }
+	}
 }
 ```
-
+Add the dependency to your app module build.gradle
+```groovy
+dependencies {
+	implementation 'com.github.Lennoard:FloatingActionMenu-Animation:1.10.1-alpha1'
+}
+```
 Add these lines to proguard, make sure that RotatingDrawable run well:
 ```groovy
 -keepclassmembers class toan.android.floatingactionmenu.FloatingActionsMenu$RotatingDrawable {
